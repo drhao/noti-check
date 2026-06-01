@@ -2,6 +2,14 @@
 
 一個 Chrome 擴充功能（Manifest V3），讓你順手查詢台灣法定傳染病的**通報定義**、臨床／檢驗／流行病學條件與病例分類。資料取自衛福部疾管署，並透過 [drhao/notifiable_diseases](https://github.com/drhao/notifiable_diseases) 每日同步。
 
+🔗 **[線上互動展示與介紹頁 →](https://drhao.github.io/noti-check/)** ｜ 授權：MIT
+
+<p align="center">
+  <img src="assets/screenshots/popup.png" width="270" alt="通報定義詳情" />
+  <img src="assets/screenshots/list.png" width="270" alt="多筆相符結果" />
+  <img src="assets/screenshots/notfound.png" width="270" alt="查無結果附官方連結" />
+</p>
+
 ## 功能
 
 - **工具列彈出視窗（popup）**：點右上角圖示，輸入疾病名稱即時查詢。

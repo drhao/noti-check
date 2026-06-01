@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="shared/styles.css" />
+    <title>通報定義查詢 — 互動展示</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        background: #eef1f4;
+      }
+      #app {
+        width: 380px;
+        height: 100%;
+        margin: 0 auto;
+        overflow: hidden;
+        background: var(--bg);
+      }
+    </style>
+    <!-- 展示用：以 in-memory stub 取代擴充功能 API，讓真實的 shared/ 程式碼能在一般網頁中執行 -->
+    <script>
+      window.chrome = {
+        runtime: { getURL: (p) => p, onInstalled: { addListener() {} } },
+        storage: {
+          local: {
+            _d: {},
+            get() {
+              return Promise.resolve({});
+            },
+            set(o) {
+              Object.assign(this._d, o);
+              return Promise.resolve();
+            },
+            remove() {
+              return Promise.resolve();
+            },
+          },
+          onChanged: { addListener() {} },
+        },
+        tabs: { query: () => Promise.resolve([{ id: 1, windowId: 1 }]) },
+        sidePanel: { open: () => Promise.resolve() },
+        contextMenus: { create() {}, onClicked: { addListener() {} } },
+      };
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import { mountApp } from "./shared/app.js";
+      mountApp(document.getElementById("app"), { showSidePanelButton: true });
+    </script>
+  </body>
+</html>

@@ -139,6 +139,7 @@ body {
   border-radius: 8px;
   cursor: pointer;
   font-size: 14px;
+  overflow: hidden;
 }
 .result-btn:hover {
   border-color: var(--brand);
@@ -146,10 +147,15 @@ body {
 }
 .result-name {
   font-weight: 600;
+  flex-shrink: 0;
 }
 .result-eng {
   color: var(--muted);
   font-size: 12px;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .badge {

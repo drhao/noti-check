@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>法定傳染病通報定義小幫手 — Chrome 擴充功能</title>
+    <meta
+      name="description"
+      content="順手查詢台灣法定傳染病的通報定義、臨床／檢驗／流行病學條件與病例分類。資料每日同步衛福部疾管署（CDC）。"
+    />
+    <style>
+      :root {
+        --brand: #0f766e;
+        --brand-dark: #0b5751;
+        --ink: #1c2733;
+        --muted: #5b6770;
+        --line: #e3e9ef;
+        --bg: #f7f9fb;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: -apple-system, "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+        color: var(--ink);
+        background: var(--bg);
+        line-height: 1.65;
+      }
+      a { color: var(--brand); }
+      .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+      header.hero {
+        background: linear-gradient(160deg, var(--brand), var(--brand-dark));
+        color: #fff;
+        padding: 64px 0 56px;
+        text-align: center;
+      }
+      .badge-icon {
+        width: 76px; height: 76px; border-radius: 18px;
+        background: rgba(255,255,255,.15);
+        display: inline-flex; align-items: center; justify-content: center;
+        font-size: 44px; font-weight: 800; margin-bottom: 18px;
+      }
+      .hero h1 { font-size: 30px; margin: 0 0 10px; }
+      .hero p.tag { font-size: 16px; opacity: .92; margin: 0 auto 26px; max-width: 560px; }
+      .cta {
+        display: inline-block; background: #fff; color: var(--brand);
+        font-weight: 700; text-decoration: none; padding: 12px 22px;
+        border-radius: 10px; margin: 6px;
+      }
+      .cta.ghost { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.7); }
+
+      section { padding: 52px 0; }
+      h2 { font-size: 22px; margin: 0 0 22px; }
+      .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
+      .card { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; }
+      .card h3 { margin: 0 0 6px; font-size: 16px; color: var(--brand); }
+      .card p { margin: 0; font-size: 14px; color: var(--muted); }
+
+      .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 22px; align-items: start; }
+      .shot { text-align: center; }
+      .shot img { width: 100%; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 6px 22px rgba(20,40,60,.08); }
+      .shot figcaption { font-size: 13px; color: var(--muted); margin-top: 10px; }
+
+      .demo-band { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+      .demo-frame {
+        width: 392px; max-width: 100%; height: 600px; margin: 0 auto;
+        border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+        box-shadow: 0 8px 30px rgba(20,40,60,.10); background: #fff;
+      }
+      .demo-frame iframe { width: 100%; height: 100%; border: 0; }
+      .demo-note { text-align: center; color: var(--muted); font-size: 13px; margin-top: 14px; }
+
+      ol.steps { padding-left: 20px; }
+      ol.steps li { margin-bottom: 10px; }
+      code { background: #eef2f4; padding: 1px 6px; border-radius: 5px; font-size: 13px; }
+
+      .note {
+        background: #fff7e6; border: 1px solid #f0c36b; border-radius: 10px;
+        padding: 14px 16px; font-size: 14px; color: #6b5210;
+      }
+      footer { padding: 36px 0 56px; color: var(--muted); font-size: 13px; text-align: center; }
+      footer a { font-weight: 600; }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <div class="wrap">
+        <div class="badge-icon">報</div>
+        <h1>法定傳染病通報定義小幫手</h1>
+        <p class="tag">
+          順手查詢台灣法定傳染病的<strong>通報定義</strong>、臨床／檢驗／流行病學條件與病例分類。
+          資料每日同步衛生福利部疾病管制署（CDC）。
+        </p>
+        <a class="cta" href="https://github.com/drhao/noti-check">下載安裝（GitHub）</a>
+        <a class="cta ghost" href="#demo">看互動展示</a>
+      </div>
+    </header>
+
+    <section>
+      <div class="wrap">
+        <h2>功能特色</h2>
+        <div class="features">
+          <div class="card">
+            <h3>三種查詢入口</h3>
+            <p>工具列彈出視窗、側邊欄常駐、以及在任何網頁選取文字後右鍵查詢。</p>
+          </div>
+          <div class="card">
+            <h3>每日線上同步</h3>
+            <p>線上抓取最新定義、本地備援離線可用；狀態列標示資料來源與更新時間。</p>
+          </div>
+          <div class="card">
+            <h3>完整全欄並列</h3>
+            <p>通報定義、臨床／檢驗／流行病學條件、可能／極可能／確定病例分類一次呈現。</p>
+          </div>
+          <div class="card">
+            <h3>直連原始 PDF</h3>
+            <p>檢體採檢送驗事項與每筆定義皆可一鍵開啟疾管署原始 PDF 對照。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-top: 0;">
+      <div class="wrap">
+        <h2>畫面預覽</h2>
+        <div class="shots">
+          <figure class="shot">
+            <img src="assets/screenshots/popup.png" alt="疾病通報定義詳情" />
+            <figcaption>輸入疾病名稱，完整定義一次呈現</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="assets/screenshots/list.png" alt="多筆相符結果清單" />
+            <figcaption>多筆相符時可點選查看</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="assets/screenshots/notfound.png" alt="查無結果附官方專頁連結" />
+            <figcaption>查無結果時附上疾管署官方專頁</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo-band" id="demo">
+      <div class="wrap">
+        <h2>互動展示（直接試打）</h2>
+        <div class="demo-frame">
+          <iframe src="demo.html?q=登革熱" title="互動展示" loading="lazy"></iframe>
+        </div>
+        <p class="demo-note">
+          此為網頁版展示，使用與擴充功能相同的程式與資料。安裝後即可在任何網頁順手查詢。
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>安裝方式</h2>
+        <p class="note">
+          ⚠️ Chrome 無法用 GitHub 網址一鍵安裝未上架的擴充功能，請先下載到電腦再「載入未封裝項目」，全程約 2 分鐘、不需寫程式。
+        </p>
+        <ol class="steps" style="margin-top: 18px;">
+          <li>到 <a href="https://github.com/drhao/noti-check">專案頁面</a>，點綠色 <code>&lt;&gt; Code</code> → <strong>Download ZIP</strong>，解壓縮。</li>
+          <li>Chrome 網址列輸入 <code>chrome://extensions</code>，開啟右上角「<strong>開發人員模式</strong>」。</li>
+          <li>點「<strong>載入未封裝項目</strong>」，選擇剛解壓縮、含 <code>manifest.json</code> 的資料夾。</li>
+          <li>工具列出現「報」字圖示即完成，點圖示開始查詢。</li>
+        </ol>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <p>
+          資料來源：<a href="https://www.cdc.gov.tw/Category/DiseaseDefine/ZW54U0FpVVhpVGR3UkViWm8rQkNwUT09">衛生福利部疾病管制署 — 傳染病病例定義</a>。
+          本工具僅供醫療人員查詢參考，實際通報前請以疾管署網站最新公告為準。
+        </p>
+        <p>
+          <a href="https://github.com/drhao/noti-check">GitHub 原始碼</a> · MIT License · 資料每日自動同步
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
