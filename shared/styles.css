@@ -1,0 +1,252 @@
+:root {
+  --bg: #f7f9fb;
+  --card: #ffffff;
+  --ink: #1c2733;
+  --muted: #66747f;
+  --line: #e3e9ef;
+  --brand: #0f766e;
+  --brand-soft: #d7f0ec;
+  --emph: #fff7e6;
+  --emph-line: #f0c36b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  font-family: -apple-system, "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.search-bar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  padding: 12px;
+  background: var(--brand);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 0;
+  padding: 9px 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+.sidepanel-btn {
+  flex-shrink: 0;
+  white-space: nowrap;
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.sidepanel-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.search-input:focus {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.35);
+}
+
+.status-line {
+  padding: 6px 12px;
+  font-size: 12px;
+  color: var(--muted);
+  background: var(--card);
+  border-bottom: 1px solid var(--line);
+}
+
+.src-online {
+  color: var(--brand);
+  font-weight: 600;
+}
+.src-cache {
+  color: #8a6d00;
+  font-weight: 600;
+}
+.src-bundled {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.results {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+}
+
+.empty,
+.list-hint {
+  color: var(--muted);
+  font-size: 13px;
+  padding: 6px 2px 10px;
+}
+
+/* 結果清單 */
+.result-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.result-item {
+  margin-bottom: 6px;
+}
+.result-btn {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 11px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.result-btn:hover {
+  border-color: var(--brand);
+  background: var(--brand-soft);
+}
+.result-name {
+  font-weight: 600;
+}
+.result-eng {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.badge {
+  margin-left: auto;
+  flex-shrink: 0;
+  font-size: 11px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: var(--brand-soft);
+  color: var(--brand);
+  font-weight: 600;
+}
+
+/* 詳情 */
+.detail-head {
+  margin-bottom: 10px;
+}
+.back-btn {
+  background: none;
+  border: none;
+  color: var(--brand);
+  cursor: pointer;
+  padding: 0 0 8px;
+  font-size: 13px;
+}
+.title-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.disease-name {
+  margin: 0;
+  font-size: 19px;
+}
+.disease-eng {
+  color: var(--muted);
+  font-size: 13px;
+}
+.detail-meta {
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.detail-meta .badge {
+  margin-left: 0;
+}
+.meta-text {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.field {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+}
+.field-emphasis {
+  background: var(--emph);
+  border-color: var(--emph-line);
+}
+.field-label {
+  margin: 0 0 4px;
+  font-size: 13px;
+  color: var(--brand);
+  font-weight: 700;
+}
+.field-emphasis .field-label {
+  color: #9a6a00;
+}
+.field-body {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.pdf-link,
+.field-link {
+  display: inline-block;
+  margin: 2px 0;
+  color: var(--brand);
+  text-decoration: none;
+  font-weight: 600;
+}
+.pdf-link {
+  margin: 6px 0 4px;
+}
+.pdf-link:hover,
+.field-link:hover {
+  text-decoration: underline;
+}
+
+.disclaimer {
+  flex-shrink: 0;
+  padding: 8px 12px;
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--muted);
+  background: #fbfcfd;
+  border-top: 1px solid var(--line);
+}
+.disclaimer-link {
+  color: var(--brand);
+  font-weight: 600;
+  text-decoration: none;
+}
+.disclaimer-link:hover {
+  text-decoration: underline;
+}
