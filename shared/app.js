@@ -8,11 +8,23 @@ const SOURCE_LABEL = {
   bundled: "內建備援",
 };
 
+// 疾管署「傳染病病例定義」官方專頁
+const CDC_DEFINE_URL =
+  "https://www.cdc.gov.tw/Category/DiseaseDefine/ZW54U0FpVVhpVGR3UkViWm8rQkNwUT09";
+
 function el(tag, cls, text) {
   const n = document.createElement(tag);
   if (cls) n.className = cls;
   if (text != null) n.textContent = text;
   return n;
+}
+
+function cdcLink(text, cls) {
+  const a = el("a", cls, text);
+  a.href = CDC_DEFINE_URL;
+  a.target = "_blank";
+  a.rel = "noopener";
+  return a;
 }
 
 function fmtTime(ts) {
@@ -49,12 +61,7 @@ export async function mountApp(root, opts = {}) {
     "disclaimer",
     "免責聲明：本工具係依據衛生福利部疾病管制署（CDC）網站公開資料彙整製作，僅供醫療人員查詢參考之用。內容可能因官方更新而未及時同步，本工具不保證其完整性、正確性與時效性。實際進行法定傳染病通報時，仍應以 "
   );
-  const cdcLink = el("a", "disclaimer-link", "疾管署病例定義專頁");
-  cdcLink.href =
-    "https://www.cdc.gov.tw/Category/DiseaseDefine/ZW54U0FpVVhpVGR3UkViWm8rQkNwUT09";
-  cdcLink.target = "_blank";
-  cdcLink.rel = "noopener";
-  disclaimer.appendChild(cdcLink);
+  disclaimer.appendChild(cdcLink("疾管署病例定義專頁", "disclaimer-link"));
   disclaimer.appendChild(document.createTextNode(" 公告之最新規定為準。"));
   root.appendChild(disclaimer);
 
@@ -85,7 +92,13 @@ export async function mountApp(root, opts = {}) {
     }
     const matches = searchDiseases(data, q);
     if (matches.length === 0) {
-      showMessage(`找不到「${q}」相符的法定傳染病。試試其他關鍵字或部分名稱。`);
+      results.textContent = "";
+      const box = el("div", "empty");
+      box.appendChild(
+        el("p", "empty-text", `找不到「${q}」相符的法定傳染病。試試其他關鍵字或部分名稱。`)
+      );
+      box.appendChild(cdcLink("前往疾管署病例定義專頁查詢全部 ↗", "empty-link"));
+      results.appendChild(box);
     } else if (matches.length === 1) {
       showDetail(matches[0], false);
     } else {

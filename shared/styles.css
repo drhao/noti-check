@@ -105,6 +105,18 @@ body {
   font-size: 13px;
   padding: 6px 2px 10px;
 }
+.empty-text {
+  margin: 0 0 8px;
+}
+.empty-link {
+  display: inline-block;
+  color: var(--brand);
+  font-weight: 600;
+  text-decoration: none;
+}
+.empty-link:hover {
+  text-decoration: underline;
+}
 
 /* 結果清單 */
 .result-list {
