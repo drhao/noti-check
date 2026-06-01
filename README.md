@@ -1,11 +1,11 @@
-# 法定傳染病通報定義小幫手
+# 法定傳染病病例定義小幫手
 
-一個 Chrome 擴充功能（Manifest V3），讓你順手查詢台灣法定傳染病的**通報定義**、臨床／檢驗／流行病學條件與病例分類。資料取自衛福部疾管署，並透過 [drhao/notifiable_diseases](https://github.com/drhao/notifiable_diseases) 每日同步。
+一個 Chrome 擴充功能（Manifest V3），讓你順手查詢台灣法定傳染病的**病例定義**——通報定義、臨床／檢驗／流行病學條件與病例分類。資料取自衛福部疾管署，並透過 [drhao/notifiable_diseases](https://github.com/drhao/notifiable_diseases) 每日同步。
 
 🔗 **[線上互動展示與介紹頁 →](https://drhao.github.io/noti-check/)** ｜ 授權：MIT
 
 <p align="center">
-  <img src="assets/screenshots/popup.png" width="270" alt="通報定義詳情" />
+  <img src="assets/screenshots/popup.png" width="270" alt="病例定義詳情" />
   <img src="assets/screenshots/list.png" width="270" alt="多筆相符結果" />
   <img src="assets/screenshots/notfound.png" width="270" alt="查無結果附官方連結" />
 </p>
@@ -14,7 +14,7 @@
 
 - **工具列彈出視窗（popup）**：點右上角圖示，輸入疾病名稱即時查詢。
 - **側邊欄（side panel）**：釘在瀏覽器側邊，看病歷／網頁時對照不擋內容。
-- **選取文字右鍵查詢**：在任何網頁選取疾病名稱 → 右鍵「在側邊欄查詢通報定義」→ 直接帶出。
+- **選取文字右鍵查詢**：在任何網頁選取疾病名稱 → 右鍵「在側邊欄查詢病例定義」→ 直接帶出。
 - **完整全欄並列**：通報定義（強調）、臨床條件、檢驗條件、流行病學條件、疾病分類（可能／極可能／確定病例）、檢體採檢送驗事項，並附 CDC 原始 PDF 連結。
 - **搜尋寬鬆**：支援中文名稱、括號內英文名（如 `Rabies`）、分類（如 `第一類`）、部分關鍵字與內文比對；全形／半形通用。
 

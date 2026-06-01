@@ -4,7 +4,7 @@ const MENU_ID = "noti-check-lookup";
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
     id: MENU_ID,
-    title: '在側邊欄查詢通報定義：「%s」',
+    title: '在側邊欄查詢病例定義：「%s」',
     contexts: ["selection"],
   });
 });

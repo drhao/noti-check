@@ -1,16 +1,16 @@
 {
   "manifest_version": 3,
-  "name": "法定傳染病通報定義小幫手",
-  "short_name": "通報定義",
+  "name": "法定傳染病病例定義小幫手",
+  "short_name": "病例定義",
   "version": "1.0.0",
-  "description": "順手查詢台灣法定傳染病的通報定義、臨床／檢驗／流行病學條件與病例分類，資料每日同步 CDC。",
+  "description": "順手查詢台灣法定傳染病的病例定義：通報定義、臨床／檢驗／流行病學條件與病例分類，資料每日同步 CDC。",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
   "action": {
-    "default_title": "查詢法定傳染病通報定義",
+    "default_title": "查詢法定傳染病病例定義",
     "default_popup": "popup/popup.html",
     "default_icon": {
       "16": "icons/icon16.png",
