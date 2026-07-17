@@ -2,7 +2,7 @@
 
 一個 Chrome 擴充功能（Manifest V3），讓你順手查詢台灣法定傳染病的**病例定義**——通報定義、臨床／檢驗／流行病學條件與病例分類。資料取自衛福部疾管署，並透過 [drhao/notifiable_diseases](https://github.com/drhao/notifiable_diseases) 每日同步。
 
-🔗 **[線上互動展示與介紹頁 →](https://drhao.github.io/noti-check/)** ｜ 授權：MIT
+🔗 **[Chrome Web Store 一鍵安裝 →](https://chromewebstore.google.com/detail/gpmdgfdccaljialgejkkfdjedoobjefb)** ｜ **[線上互動展示與介紹頁 →](https://drhao.github.io/noti-check/)** ｜ 授權：MIT
 
 <p align="center">
   <img src="assets/screenshots/popup.png" width="270" alt="病例定義詳情" />
@@ -26,13 +26,17 @@
 
 ## 安裝
 
-> ⚠️ Chrome **無法**直接用 GitHub 網址一鍵安裝未上架的擴充功能。請先把這個 repo 下載到電腦，再用「載入未封裝項目」載入。整個過程約 2 分鐘、不需要寫程式。
+### 方式一：Chrome Web Store 一鍵安裝（推薦）
 
-### 第 1 步：把 repo 下載到電腦
+1. 前往商店頁面：**<https://chromewebstore.google.com/detail/gpmdgfdccaljialgejkkfdjedoobjefb>**
+2. 點「**加到 Chrome**」→「**新增擴充功能**」。
+3. 工具列出現「報」字圖示即安裝完成，日後新版會**自動更新**。
 
-任選一種方式：
+### 方式二：從原始碼載入（開發者／想自行修改的人）
 
-**方式 A — 下載 ZIP（最簡單，不用裝 git）**
+**第 1 步：把 repo 下載到電腦**，任選一種方式：
+
+**方式 A — 下載 ZIP（不用裝 git）**
 
 1. 開啟本專案頁面：<https://github.com/drhao/noti-check>
 2. 點綠色的「**`<> Code`**」按鈕 → 「**Download ZIP**」。
@@ -47,7 +51,7 @@ git clone https://github.com/drhao/noti-check.git
 
 會在目前目錄產生 `noti-check` 資料夾。
 
-### 第 2 步：在 Chrome 載入
+**第 2 步：在 Chrome 載入**
 
 1. 開啟 Chrome，網址列輸入 `chrome://extensions` 後按 Enter。
 2. 打開右上角的「**開發人員模式 / Developer mode**」開關。
@@ -55,7 +59,7 @@ git clone https://github.com/drhao/noti-check.git
 4. 選擇第 1 步解壓縮／複製出來的資料夾（裡面要看得到 `manifest.json` 的那一層，例如 `noti-check-main` 或 `noti-check`），按「選擇」。
 5. 工具列會出現「報」字圖示即代表安裝完成。
 
-### 第 3 步：開始使用
+## 開始使用
 
 - **點工具列圖示** → 彈出視窗輸入疾病名稱查詢。
 - 視窗右上的「**側邊欄 ⤢**」可把查詢移到側邊欄常駐。
@@ -65,12 +69,13 @@ git clone https://github.com/drhao/noti-check.git
 
 ## 更新到最新版
 
-擴充功能的**資料**會每日線上自動同步，不需處理。若要更新**程式本身**（介面/功能）：
+- **商店版**：Chrome 會自動推送更新，不需處理。
+- **資料**：每日線上自動同步，不需處理。
+- **原始碼載入版**要更新程式本身（介面/功能）時：
+  - 方式 A（ZIP）：重新下載 ZIP、解壓縮覆蓋原資料夾。
+  - 方式 B（git）：在資料夾內執行 `git pull`。
 
-- 方式 A（ZIP）：重新下載 ZIP、解壓縮覆蓋原資料夾。
-- 方式 B（git）：在資料夾內執行 `git pull`。
-
-更新後到 `chrome://extensions`，在本擴充功能卡片上點**重新整理（↻ / Reload）**即可生效。
+  更新後到 `chrome://extensions`，在本擴充功能卡片上點**重新整理（↻ / Reload）**即可生效。
 
 ## 更新內建備援資料（維護者用）
 

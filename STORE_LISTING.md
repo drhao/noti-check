@@ -1,6 +1,8 @@
 # Chrome Web Store 上架資料
 
-把這份內容貼進 [Chrome Web Store 開發人員資訊主頁](https://chrome.google.com/webstore/devconsole/) 即可。所有圖片素材都在 `store/` 與 `icons/`。
+> ✅ **已上架**，商店頁面：<https://chromewebstore.google.com/detail/gpmdgfdccaljialgejkkfdjedoobjefb>
+
+把這份內容貼進 [Chrome Web Store 開發人員資訊主頁](https://chrome.google.com/webstore/devconsole/) 即可。所有圖片素材都在 `store/` 與 `icons/`。日後更新版本時參考「四、上架步驟」最後的說明。
 
 ---
 
